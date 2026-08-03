@@ -355,6 +355,7 @@ h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-
     <!-- LEAD FORM -->
     <div class="formcard rise d3" id="form">
       <form id="leadForm" novalidate>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="fhead"><h2>Solicite seu assessment</h2><span class="lock">Sem compromisso</span></div>
         <p class="sub">Preencha e retornamos em até 1 dia útil com os próximos passos.</p>
         <div class="field"><label for="nome">Nome</label><input type="text" id="nome" name="nome" autocomplete="name" required></div>
@@ -581,6 +582,7 @@ h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-
       </div>
       <div class="formcard">
         <form id="leadForm2" novalidate>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <div class="fhead"><h2>Solicite seu assessment</h2></div>
           <p class="sub">Sem compromisso. Resposta em até 1 dia útil.</p>
           <div class="field"><label for="nome2">Nome</label><input type="text" id="nome2" name="nome" required></div>
@@ -650,28 +652,44 @@ h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-
    Vazio = fallback por e-mail (abre o cliente de e-mail preenchido).
    Netlify Forms: adicione ao <form> os atributos netlify e name="assessment".
    ============================================================ */
-const FORM_ENDPOINT = "";
+/* Endpoint do Formspree (recebe os leads e envia por e-mail).
+   Para trocar o e-mail de destino, altere o formulário no painel do Formspree. */
+const FORM_ENDPOINT = "https://formspree.io/f/xeajjjqq";
 const EMAIL_DESTINO = "alexander.bottaro@bottaroti.com.br";
 
 function getUTMs(){const p=new URLSearchParams(location.search),o={};["utm_source","utm_medium","utm_campaign","utm_term","utm_content"].forEach(k=>{if(p.get(k))o[k]=p.get(k)});return o;}
 function handleForm(form,msgEl){
+  const btn=form.querySelector("button[type=submit]");
   form.addEventListener("submit",async function(e){
-    e.preventDefault();let ok=true;
+    e.preventDefault();
+
+    // honeypot anti-spam: se o campo oculto vier preenchido, é robô — finge sucesso e descarta
+    const trap=form.querySelector("input[name=_gotcha]");
+    if(trap&&trap.value){form.style.display="none";msgEl.style.display="block";return;}
+
+    let ok=true;
     form.querySelectorAll("[required]").forEach(el=>{
       const inv=(el.type==="checkbox")?!el.checked:!el.value.trim();
       if(el.type==="email"&&el.value&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value)){el.classList.add("err");ok=false;return;}
       el.classList.toggle("err",inv);if(inv)ok=false;
     });
     if(!ok)return;
-    const data=Object.fromEntries(new FormData(form).entries());Object.assign(data,getUTMs());data.origem="Landing Assessment M365";
+
+    const data=Object.fromEntries(new FormData(form).entries());
+    Object.assign(data,getUTMs());
+    data.origem="Landing Assessment M365";
+    // assunto identificado do e-mail que chega para você
+    data._subject="Novo lead · Assessment M365 · "+(data.empresa||data.nome||"sem empresa");
+
     const done=()=>{form.style.display="none";msgEl.style.display="block";msgEl.scrollIntoView({behavior:"smooth",block:"center"});};
-    if(FORM_ENDPOINT){
-      try{const r=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)});r.ok?done():alert("Não foi possível enviar agora. Tente novamente ou escreva para "+EMAIL_DESTINO+".");}
-      catch(err){alert("Falha de conexão. Tente novamente ou escreva para "+EMAIL_DESTINO+".");}
-    }else{
-      const corpo=Object.entries(data).map(([k,v])=>k+": "+v).join("%0D%0A");
-      window.location.href="mailto:"+EMAIL_DESTINO+"?subject="+encodeURIComponent("Solicitação de Assessment M365 — "+(data.empresa||data.nome||""))+"&body="+corpo;done();
-    }
+    const fail=()=>{alert("Não foi possível enviar agora. Tente novamente em instantes ou escreva para "+EMAIL_DESTINO+".");};
+
+    if(btn){btn.disabled=true;btn.dataset.txt=btn.textContent;btn.textContent="Enviando...";}
+    try{
+      const r=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)});
+      if(r.ok){done();}else{fail();}
+    }catch(err){fail();}
+    finally{if(btn){btn.disabled=false;btn.textContent=btn.dataset.txt||"Solicitar meu assessment";}}
   });
   form.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",()=>el.classList.remove("err")));
 }
