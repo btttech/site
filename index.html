@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assessment Microsoft 365 — Bottaro TI | Segurança, conformidade e custos do seu ambiente</title>
+<meta name="description" content="Consultoria independente em Microsoft 365. Assessment de segurança e governança do seu ambiente: diagnóstico completo e plano de ação priorizado em até 5 dias úteis. Somente leitura e confidencial.">
+<link rel="canonical" href="https://bottaroti.com.br/">
+<meta name="theme-color" content="#070B12">
+<meta name="author" content="Bottaro TI">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%2523070B12%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%25235AA0FF%22%20stroke-width%3D%222.6%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2234%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2250%22%20rx%3D%2213.6%22%20ry%3D%2234%22%2F%3E%3Cline%20x1%3D%2250%22%20y1%3D%2216%22%20x2%3D%2250%22%20y2%3D%2284%22%2F%3E%3Cpath%20d%3D%22M20%2037%20H80%22%2F%3E%3Cpath%20d%3D%22M18%2050%20H82%22%2F%3E%3Cpath%20d%3D%22M20%2063%20H80%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22%25235AA0FF%22%3E%3Ccircle%20cx%3D%2233%22%20cy%3D%2234%22%20r%3D%223.6%22%2F%3E%3Ccircle%20cx%3D%2264%22%20cy%3D%2244%22%20r%3D%224%22%2F%3E%3Ccircle%20cx%3D%2241%22%20cy%3D%2258%22%20r%3D%223.6%22%2F%3E%3Ccircle%20cx%3D%2267%22%20cy%3D%2263%22%20r%3D%223.6%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bottaro TI">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://bottaroti.com.br/">
+<meta property="og:title" content="Assessment de Segurança e Governança Microsoft 365 — Bottaro TI">
+<meta property="og:description" content="Diagnóstico completo do seu ambiente Microsoft 365 e plano de ação priorizado em até 5 dias úteis. Somente leitura e confidencial.">
+<meta property="og:image" content="https://bottaroti.com.br/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bottaro TI — Assessment de Segurança e Governança Microsoft 365">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Assessment de Segurança e Governança Microsoft 365 — Bottaro TI">
+<meta name="twitter:description" content="Diagnóstico completo do seu ambiente Microsoft 365 e plano de ação priorizado em até 5 dias úteis.">
+<meta name="twitter:image" content="https://bottaroti.com.br/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#070B12; --ink-2:#0D1420; --ink-3:#1C2A3E; --ink-line:rgba(120,160,220,.14);
+  --paper:#F4F7FB; --paper-2:#EAF0F7; --white:#FFFFFF; --line:#E1E8F1;
+  --hi:#EAF1FB; --lo:#8DA0BC;
+  --dk:#0D1B2E; --dk-lo:#51637C;
+  --navy:#003C60;
+  --blue:#2E6DF6; --blue-2:#5AA0FF; --blue-deep:#1B4FD0; --blue-soft:rgba(46,109,246,.12);
+  --ok:#27B36B; --ok-dk:#1E9457;
+  --p0:#F0454B; --p1:#F5A524; --p2:#5AA0FF; --p3:#6E8BB5;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'IBM Plex Sans',system-ui,sans-serif;color:var(--dk);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue)}
+.sec.dark .eyebrow{color:var(--blue-2)}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.02em;line-height:1.08}
+
+/* ---------- Logo ---------- */
+.brand{display:inline-flex;align-items:center;gap:12px}
+.brand .globe{width:34px;height:34px;flex:none}
+.brand .wm{display:flex;flex-direction:column;line-height:1}
+.brand .wm .n{font-family:'Space Grotesk';font-weight:700;font-size:1.16rem;letter-spacing:.01em;color:var(--hi)}
+.brand .wm .t{font-family:'IBM Plex Mono';font-weight:500;font-size:.52rem;letter-spacing:.19em;color:var(--lo);text-transform:uppercase;margin-top:3px}
+.brand.on-light .wm .n{color:var(--navy)}
+.brand.on-light .wm .t{color:#6A7C90}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--blue);color:#fff;font-weight:600;font-size:1rem;padding:14px 24px;border-radius:10px;border:0;cursor:pointer;transition:transform .15s ease,background .15s ease}
+.btn:hover{background:var(--blue-deep);transform:translateY(-2px)}
+.btn.sm{padding:10px 17px;font-size:.9rem}
+.btn.block{width:100%;justify-content:center;padding:16px}
+.ghost{display:inline-flex;align-items:center;gap:8px;color:var(--hi);font-weight:600;padding:14px 22px;border:1px solid var(--ink-3);border-radius:10px;transition:.15s}
+.ghost:hover{border-color:var(--blue);color:var(--blue-2);background:var(--blue-soft)}
+
+/* ---------- Top bar ---------- */
+.topbar{background:#05080E;border-bottom:1px solid var(--ink-line);color:var(--lo)}
+.topbar .row{display:flex;align-items:center;justify-content:center;gap:22px;height:38px;font-family:'IBM Plex Mono';font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+.topbar .row span{display:inline-flex;align-items:center;gap:8px}
+.topbar .row i{width:5px;height:5px;border-radius:50%;background:var(--ok)}
+.topbar .sep{width:1px;height:14px;background:var(--ink-3)}
+@media(max-width:720px){.topbar .row span:nth-child(n+3){display:none}.topbar .sep{display:none}}
+
+/* ---------- Nav ---------- */
+.nav{position:sticky;top:0;z-index:40;background:rgba(7,11,18,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--ink-line)}
+.nav .row{display:flex;align-items:center;justify-content:space-between;height:70px}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a.txt{color:var(--lo);font-size:.92rem;font-weight:500}
+.nav-links a.txt:hover{color:var(--hi)}
+
+/* ---------- Hero ---------- */
+.hero{background:var(--ink);color:var(--hi);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(900px 500px at 78% -12%,rgba(46,109,246,.22),transparent 62%),radial-gradient(680px 400px at 4% 112%,rgba(27,79,208,.15),transparent 60%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background-image:linear-gradient(var(--ink-line) 1px,transparent 1px),linear-gradient(90deg,var(--ink-line) 1px,transparent 1px);
+  background-size:54px 54px;-webkit-mask-image:radial-gradient(680px 380px at 78% 4%,#000,transparent 72%);mask-image:radial-gradient(680px 380px at 78% 4%,#000,transparent 72%)}
+.hero .grid{display:grid;grid-template-columns:1.04fr .96fr;gap:52px;align-items:start;padding:62px 0 74px;position:relative;z-index:1}
+.hero-left{padding-top:6px}
+.eyebrow-line{display:block;margin-bottom:18px}
+.badge{display:inline-flex;align-items:center;gap:9px;background:rgba(39,179,107,.1);border:1px solid rgba(39,179,107,.32);color:#7CE3AC;font-family:'IBM Plex Mono';font-size:.73rem;font-weight:600;letter-spacing:.04em;padding:7px 14px;border-radius:100px;margin-bottom:22px}
+.badge .p{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(39,179,107,.25)}
+.hero h1{font-size:clamp(2.15rem,4.5vw,3.5rem);color:var(--hi);margin:0 0 20px}
+.hero h1 .g{background:linear-gradient(120deg,var(--blue-2),#9CC4FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:1.1rem;color:var(--lo);max-width:42ch;margin-bottom:24px}
+.hero .deliver{display:flex;flex-direction:column;gap:11px;margin-bottom:26px}
+.hero .deliver span{display:inline-flex;align-items:center;gap:11px;font-size:.98rem;color:var(--hi)}
+.hero .deliver .ic{width:22px;height:22px;border-radius:6px;background:rgba(39,179,107,.14);display:flex;align-items:center;justify-content:center;flex:none}
+.hero .deliver .ic svg{width:13px;height:13px;stroke:#7CE3AC;fill:none;stroke-width:3}
+.hero .cred{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding-top:24px;border-top:1px solid var(--ink-line)}
+.cred .ms{display:inline-flex;align-items:center;gap:9px}
+.cred .ms .sq{display:grid;grid-template-columns:repeat(2,9px);grid-template-rows:repeat(2,9px);gap:2px}
+.cred .ms .sq i{width:9px;height:9px;display:block}
+.cred .ms .w{font-size:.86rem;color:var(--hi);font-weight:500}
+.cred .certs{font-family:'IBM Plex Mono';font-size:.73rem;color:var(--lo);letter-spacing:.03em;display:inline-flex;gap:14px;flex-wrap:wrap}
+.cred .certs span{display:inline-flex;align-items:center;gap:7px}
+.cred .certs i{width:5px;height:5px;border-radius:50%;background:var(--blue-2)}
+
+/* ---------- Lead form ---------- */
+.formcard{background:var(--white);border-radius:16px;padding:28px;box-shadow:0 40px 80px -34px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.5);position:relative}
+.formcard .fhead{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.formcard h2{font-size:1.3rem;color:var(--dk)}
+.formcard .lock{margin-left:auto;font-family:'IBM Plex Mono';font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ok-dk);background:rgba(39,179,107,.1);border:1px solid rgba(39,179,107,.28);padding:4px 8px;border-radius:6px}
+.formcard .sub{color:var(--dk-lo);font-size:.9rem;margin-bottom:20px}
+.field{margin-bottom:13px}
+.field label{display:block;font-size:.78rem;font-weight:600;color:var(--dk);margin-bottom:5px}
+.field input,.field select{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:9px;font-family:inherit;font-size:.94rem;color:var(--dk);background:#FBFCFE;transition:.15s}
+.field input:focus,.field select:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+.field.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field.two>div{margin:0}
+.consent{display:flex;gap:9px;align-items:flex-start;margin:14px 0 16px}
+.consent input{margin-top:3px;flex:none;width:16px;height:16px;accent-color:var(--blue)}
+.consent label{font-size:.76rem;color:var(--dk-lo);line-height:1.5}
+.formcard .note{font-size:.72rem;color:var(--dk-lo);text-align:center;margin-top:12px}
+.err{border-color:var(--p0)!important}
+.form-msg{display:none;text-align:center;padding:26px 10px}
+.form-msg .ic{width:56px;height:56px;border-radius:50%;background:rgba(39,179,107,.12);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.form-msg .ic svg{width:28px;height:28px;stroke:var(--ok);fill:none;stroke-width:2.6}
+.form-msg h3{font-size:1.3rem;color:var(--dk);margin-bottom:8px}
+.form-msg p{color:var(--dk-lo);font-size:.95rem}
+
+/* ---------- Tech strip ---------- */
+.techstrip{background:#05080E;border-top:1px solid var(--ink-line);border-bottom:1px solid var(--ink-line);padding:26px 0;position:relative;z-index:1}
+.techstrip .row{display:flex;align-items:center;gap:30px;flex-wrap:wrap;justify-content:space-between}
+.techstrip .lead-ms{display:inline-flex;align-items:center;gap:12px;flex:none}
+.techstrip .lead-ms .sq{display:grid;grid-template-columns:repeat(2,13px);grid-template-rows:repeat(2,13px);gap:2px}
+.techstrip .lead-ms .sq i{width:13px;height:13px;display:block}
+.techstrip .lead-ms .w{font-size:1.02rem;color:var(--hi);font-weight:500}
+.techstrip .lead-ms .lb{font-family:'IBM Plex Mono';font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lo);display:block;margin-bottom:2px}
+.techstrip .work{display:flex;flex-wrap:wrap;gap:9px}
+.techstrip .work span{font-family:'IBM Plex Mono';font-size:.74rem;color:var(--lo);border:1px solid var(--ink-3);border-radius:100px;padding:7px 13px}
+
+/* ---------- Sections ---------- */
+.sec{padding:88px 0}
+.sec.paper{background:var(--paper)}
+.sec.paper-2{background:var(--paper-2)}
+.sec.dark{background:var(--ink);color:var(--hi);position:relative;overflow:hidden}
+.sec.dark::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 420px at 90% 0%,rgba(46,109,246,.1),transparent 60%);pointer-events:none}
+.sec-inner{position:relative;z-index:1}
+.sec-head{max-width:700px;margin-bottom:52px;position:relative}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin:14px 0 0}
+.sec.dark .sec-head h2{color:var(--hi)}
+.sec-head p{color:var(--dk-lo);font-size:1.05rem;margin-top:16px}
+.sec.dark .sec-head p{color:var(--lo)}
+
+/* ---------- Problem cards ---------- */
+.probs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prob{background:rgba(255,255,255,.03);border:1px solid var(--ink-3);border-radius:14px;padding:24px}
+.prob .h{display:flex;align-items:center;gap:9px;font-family:'Space Grotesk';font-weight:600;font-size:1.02rem;color:var(--hi)}
+.prob .h i{width:8px;height:8px;border-radius:50%;flex:none}
+.prob p{color:var(--lo);font-size:.9rem;margin-top:12px}
+
+/* ---------- Áreas analisadas (grade de ícones) ---------- */
+.areas{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.area{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px 20px;transition:.15s}
+.area:hover{transform:translateY(-3px);box-shadow:0 20px 40px -26px rgba(13,27,46,.4);border-color:#C9D8EC}
+.area .ic{width:46px;height:46px;border-radius:12px;background:var(--blue-soft);border:1px solid rgba(46,109,246,.16);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.area .ic svg{width:23px;height:23px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.area .code{font-family:'IBM Plex Mono';font-size:.65rem;font-weight:600;letter-spacing:.15em;color:var(--blue);text-transform:uppercase;display:block;margin-bottom:7px}
+.area h3{font-size:.98rem;color:var(--dk);line-height:1.25;font-family:'Space Grotesk';font-weight:600}
+.areas-foot{margin-top:24px;font-size:.9rem;color:var(--dk-lo);display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+.areas-foot b{font-family:'IBM Plex Mono';font-size:.72rem;font-weight:600;letter-spacing:.06em;color:var(--blue-deep);background:var(--blue-soft);padding:5px 11px;border-radius:100px;text-transform:uppercase}
+
+/* ---------- Steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.step{border-top:2px solid var(--blue);padding-top:22px}
+.step .n{font-family:'Space Grotesk';font-weight:700;font-size:2.4rem;color:var(--blue-2);line-height:1}
+.step h3{font-size:1.18rem;color:var(--dk);margin:14px 0 10px}
+.step p{color:var(--dk-lo);font-size:.95rem}
+
+/* ---------- Stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{text-align:center;padding:8px}
+.stat b{font-family:'Space Grotesk';font-weight:700;font-size:2.6rem;display:block;background:linear-gradient(120deg,var(--blue-2),#A9CCFF);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.stat span{color:var(--lo);font-size:.9rem;display:block;margin-top:10px}
+
+/* ---------- Deliverable ---------- */
+.deliv{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.deliv-list{list-style:none;margin-top:8px}
+.deliv-list li{display:flex;gap:13px;padding:16px 0;border-bottom:1px solid var(--ink-line)}
+.deliv-list li:last-child{border-bottom:0}
+.deliv-list .ic{width:26px;height:26px;border-radius:7px;background:var(--blue-soft);flex:none;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.deliv-list .ic svg{width:15px;height:15px;stroke:var(--blue-2);fill:none;stroke-width:2.4}
+.deliv-list b{font-family:'Space Grotesk';font-weight:600;color:var(--hi);font-size:1.02rem;display:block;margin-bottom:2px}
+.deliv-list span{color:var(--lo);font-size:.9rem}
+.panel{background:linear-gradient(180deg,#0F1A2C,#0A1220);border:1px solid var(--ink-3);border-radius:16px;padding:22px;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
+.panel-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid var(--ink-line)}
+.panel-head .t{font-family:'Space Grotesk';font-weight:700;font-size:1.02rem;color:var(--hi)}
+.panel-head .ro{font-family:'IBM Plex Mono';font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-2);border:1px solid var(--ink-3);padding:4px 8px;border-radius:6px}
+.scan{height:2px;background:linear-gradient(90deg,transparent,var(--blue-2),transparent);border-radius:2px}
+.score{display:flex;align-items:center;gap:16px;padding:18px 0 6px}
+.ring{width:92px;height:92px;flex:none;position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .val b{font-family:'Space Grotesk';font-size:1.45rem;color:var(--hi);line-height:1}
+.ring .val small{font-family:'IBM Plex Mono';font-size:.55rem;letter-spacing:.1em;color:var(--lo);text-transform:uppercase;margin-top:3px}
+.score-txt .k{font-family:'IBM Plex Mono';font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lo)}
+.score-txt .d{font-size:.9rem;color:var(--hi);margin-top:6px;max-width:22ch}
+.findings{margin-top:14px;display:flex;flex-direction:column;gap:1px;background:var(--ink-line);border-radius:10px;overflow:hidden}
+.f{display:flex;align-items:center;gap:12px;padding:11px 14px;background:#0E1A2B}
+.f .tag{font-family:'IBM Plex Mono';font-weight:600;font-size:.68rem;color:#070B12;padding:3px 7px;border-radius:5px;flex:none;min-width:30px;text-align:center}
+.f.p0 .tag{background:var(--p0);color:#fff} .f.p1 .tag{background:var(--p1)} .f.p2 .tag{background:var(--p2)} .f.p3 .tag{background:var(--p3)}
+.f .lbl{font-size:.89rem;color:var(--hi)}
+.f .lbl small{display:block;color:var(--lo);font-size:.75rem}
+.panel-foot{font-size:.71rem;color:var(--lo);margin-top:14px;text-align:center;font-style:italic}
+
+/* ---------- Differentiators ---------- */
+.diffs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.diff{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px}
+.diff .ic{width:46px;height:46px;border-radius:12px;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;margin-bottom:16px;border:1px solid rgba(46,109,246,.2)}
+.diff .ic svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.8}
+.diff h3{font-size:1.08rem;color:var(--dk);margin-bottom:8px}
+.diff p{color:var(--dk-lo);font-size:.9rem}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:820px;margin:0 auto}
+.qa{border-bottom:1px solid var(--line);padding:22px 0}
+.qa h3{font-size:1.08rem;color:var(--dk);margin-bottom:8px;display:flex;gap:11px}
+.qa h3 span{color:var(--blue);font-family:'IBM Plex Mono';font-weight:600}
+.qa p{color:var(--dk-lo);font-size:.96rem;padding-left:28px}
+
+/* ---------- Final CTA ---------- */
+.final{background:linear-gradient(150deg,#14264A,#070B12 72%);color:var(--hi);border-radius:22px;padding:56px 48px;position:relative;overflow:hidden;border:1px solid var(--ink-3);display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.final::after{content:"";position:absolute;inset:0;background:radial-gradient(600px 320px at 20% 120%,rgba(46,109,246,.28),transparent 60%);pointer-events:none}
+.final .t{position:relative;z-index:1}
+.final h2{font-size:clamp(1.7rem,3.4vw,2.4rem);color:var(--hi)}
+.final p{color:var(--lo);font-size:1.05rem;margin-top:16px;max-width:42ch}
+.final .formcard{position:relative;z-index:1}
+
+/* ---------- Footer ---------- */
+.foot{background:var(--ink);color:var(--lo);padding:56px 0 40px;border-top:1px solid var(--ink-line)}
+.foot .top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;margin-bottom:34px}
+.foot .desc{max-width:34ch;font-size:.92rem;margin-top:16px}
+.foot h4{font-family:'Space Grotesk';font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--hi);margin-bottom:14px}
+.foot ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:.92rem}
+.foot a:hover{color:var(--blue-2)}
+.foot .ms-foot{display:inline-flex;align-items:center;gap:9px;margin-top:16px}
+.foot .ms-foot .sq{display:grid;grid-template-columns:repeat(2,8px);grid-template-rows:repeat(2,8px);gap:2px}
+.foot .ms-foot .sq i{width:8px;height:8px;display:block}
+.foot .ms-foot .w{font-size:.8rem;color:var(--lo)}
+.foot .meta{font-family:'IBM Plex Mono';font-size:.74rem;letter-spacing:.03em;color:#5B7089;border-top:1px solid var(--ink-line);padding-top:22px;display:flex;flex-wrap:wrap;gap:6px 20px;justify-content:space-between}
+
+/* ---------- Animations ---------- */
+@keyframes ringfill{from{stroke-dashoffset:314}to{stroke-dashoffset:97}}
+.ring .prog{stroke-dasharray:314;stroke-dashoffset:97;animation:ringfill 1.4s cubic-bezier(.2,.7,.2,1) .3s both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.rise{animation:rise .6s ease both}
+.d1{animation-delay:.05s}.d2{animation-delay:.12s}.d3{animation-delay:.19s}.d4{animation-delay:.26s}
+
+/* ---------- Responsive ---------- */
+@media(max-width:960px){
+  .hero .grid{grid-template-columns:1fr;gap:36px;padding:44px 0 56px}
+  .probs,.diffs{grid-template-columns:repeat(2,1fr)}
+  .steps,.deliv,.final{grid-template-columns:1fr}
+  .areas{grid-template-columns:repeat(3,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr);gap:32px 24px}
+  .deliv .panel{order:-1}
+  .foot .top{grid-template-columns:1fr 1fr}
+  .nav-links a.txt{display:none}
+  .techstrip .row{justify-content:flex-start}
+  .sec{padding:60px 0}
+  .final{padding:40px 24px}
+}
+@media(max-width:560px){
+  .probs,.diffs,.stats{grid-template-columns:1fr}
+  .areas{grid-template-columns:repeat(2,1fr)}
+  .field.two{grid-template-columns:1fr}
+  .foot .top{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto}
+  .ring .prog{stroke-dashoffset:97}
+}
+:focus-visible{outline:2px solid var(--blue-2);outline-offset:3px;border-radius:6px}
+</style>
+</head>
+<body>
+
+<!-- SVG symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="globe" viewBox="0 0 100 100">
+    <g fill="none" stroke="currentColor" stroke-width="2.4">
+      <circle cx="50" cy="50" r="40"/>
+      <ellipse cx="50" cy="50" rx="16" ry="40"/>
+      <line x1="50" y1="10" x2="50" y2="90"/>
+      <path d="M12 34 H88" stroke-width="2.1"/>
+      <path d="M10 50 H90"/>
+      <path d="M12 66 H88" stroke-width="2.1"/>
+      <g stroke-width="1.7">
+        <line x1="30" y1="30" x2="66" y2="42"/>
+        <line x1="66" y1="42" x2="40" y2="60"/>
+        <line x1="40" y1="60" x2="70" y2="66"/>
+        <line x1="30" y1="30" x2="40" y2="60"/>
+      </g>
+    </g>
+    <g fill="currentColor">
+      <circle cx="30" cy="30" r="4"/>
+      <circle cx="66" cy="42" r="4.6"/>
+      <circle cx="40" cy="60" r="4"/>
+      <circle cx="70" cy="66" r="4"/>
+      <circle cx="50" cy="16" r="3.4"/>
+    </g>
+  </symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.6"/></symbol>
+</svg>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap row">
+    <a href="#topo" class="brand" aria-label="Bottaro TI">
+      <span class="globe" style="color:var(--blue-2)"><svg viewBox="0 0 100 100" width="34" height="34"><use href="#globe"/></svg></span>
+      <span class="wm"><span class="n">BOTTARO TI</span><span class="t">Consultoria em Tecnologia da Informação</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#analisa" class="txt">O que analisamos</a>
+      <a href="#como" class="txt">Como funciona</a>
+      <a href="#faq" class="txt">Dúvidas</a>
+      <a href="#form" class="btn sm">Solicitar avaliação</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="topo">
+  <div class="wrap grid">
+    <div class="hero-left">
+      <span class="eyebrow eyebrow-line rise d1">Assessment de Segurança e Governança · Microsoft 365</span>
+      <div class="badge rise d1"><span class="p"></span>Diagnóstico + plano de ação em até 5 dias úteis</div>
+      <h1 class="rise d2">Seu ambiente Microsoft 365 está ativo. Mas está <span class="g">sob controle?</span></h1>
+      <p class="lead rise d3">Permissões em excesso, contas sem MFA, dados expostos e licenças desperdiçadas costumam passar despercebidos — até virarem incidente, multa ou custo. O Assessment da Bottaro TI faz um raio-X completo do ambiente e entrega um plano de ação priorizado por risco.</p>
+      <div class="deliver rise d3">
+        <span><span class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></span>Somente leitura — nada é instalado ou alterado</span>
+        <span><span class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></span>Relatório executivo + plano priorizado por risco</span>
+        <span><span class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></span>Confidencial e conduzido por especialista certificado</span>
+      </div>
+    </div>
+
+    <!-- LEAD FORM -->
+    <div class="formcard rise d3" id="form">
+      <form id="leadForm" novalidate>
+        <div class="fhead"><h2>Solicite seu assessment</h2><span class="lock">Sem compromisso</span></div>
+        <p class="sub">Preencha e retornamos em até 1 dia útil com os próximos passos.</p>
+        <div class="field"><label for="nome">Nome</label><input type="text" id="nome" name="nome" autocomplete="name" required></div>
+        <div class="field"><label for="email">E-mail corporativo</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+        <div class="field two">
+          <div><label for="empresa">Empresa</label><input type="text" id="empresa" name="empresa" autocomplete="organization" required></div>
+          <div><label for="telefone">WhatsApp / telefone</label><input type="tel" id="telefone" name="telefone" autocomplete="tel"></div>
+        </div>
+        <div class="field two">
+          <div><label for="cargo">Seu cargo</label>
+            <select id="cargo" name="cargo" required><option value="">Selecione</option><option>Sócio / Diretor(a)</option><option>Gerente / Coordenador(a) de TI</option><option>Analista / Infra / TI</option><option>Outro</option></select>
+          </div>
+          <div><label for="usuarios">Usuários no M365</label>
+            <select id="usuarios" name="usuarios" required><option value="">Selecione</option><option>Até 25</option><option>26 a 100</option><option>101 a 300</option><option>Mais de 300</option></select>
+          </div>
+        </div>
+        <div class="consent"><input type="checkbox" id="consent" name="consent" required><label for="consent">Autorizo a Bottaro TI a entrar em contato sobre o assessment e concordo com o tratamento dos meus dados conforme a LGPD.</label></div>
+        <button type="submit" class="btn block">Solicitar meu assessment</button>
+        <p class="note">Resposta em até 1 dia útil · Seus dados não são compartilhados.</p>
+      </form>
+      <div class="form-msg" id="formMsg">
+        <div class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></div>
+        <h3>Recebido. Obrigado!</h3>
+        <p>Retornarei em até 1 dia útil no e-mail informado com os próximos passos do seu assessment.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECH STRIP -->
+  <div class="techstrip">
+    <div class="wrap row">
+      <span class="lead-ms">
+        <span class="sq"><i style="background:#F25022"></i><i style="background:#7FBA00"></i><i style="background:#00A4EF"></i><i style="background:#FFB900"></i></span>
+        <span><span class="lb">Especialista em</span><span class="w">Microsoft 365</span></span>
+      </span>
+      <div class="work">
+        <span>Entra ID</span><span>Intune</span><span>Defender</span><span>Purview</span><span>Exchange Online</span><span>SharePoint</span><span>Teams</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section class="sec dark">
+  <div class="wrap sec-inner">
+    <div class="sec-head">
+      <span class="eyebrow">Por que fazer</span>
+      <h2>Ter o Microsoft 365 não é o mesmo que ter o ambiente protegido.</h2>
+      <p>A configuração padrão é permissiva e quase nunca é revisada. Sem alguém responsável pela governança, o risco se acumula em silêncio — nas quatro frentes abaixo.</p>
+    </div>
+    <div class="probs">
+      <div class="prob"><div class="h"><i style="background:var(--p0)"></i>Segurança</div><p>Contas sem MFA, administradores demais, e-mail encaminhado para fora, acessos que sobraram de quem já saiu.</p></div>
+      <div class="prob"><div class="h"><i style="background:var(--p1)"></i>Conformidade</div><p>Sem trilha de auditoria, sem retenção, sem backup. Exposição direta frente à LGPD e a exigências regulatórias.</p></div>
+      <div class="prob"><div class="h"><i style="background:var(--p2)"></i>Ambiente</div><p>Sites e grupos sem dono, compartilhamento externo sem controle, dispositivos fora de qualquer gestão.</p></div>
+      <div class="prob"><div class="h"><i style="background:var(--p3)"></i>Custos</div><p>Licença paga em conta desabilitada, plano duplicado, capacidade contratada e nunca usada.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT ANALYZES -->
+<section class="sec paper" id="analisa">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">O que o assessment analisa</span>
+      <h2>Seu ambiente coberto de ponta a ponta.</h2>
+      <p>Uma varredura automatizada sobre as APIs oficiais da Microsoft, seguida de análise manual. Nada é instalado e nada é alterado.</p>
+    </div>
+    <div class="areas">
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20a6.5 6.5 0 0113 0"/></svg></div>
+        <span class="code">IAM</span><h3>Identidade e Acesso</h3>
+      </div>
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="8" cy="14" r="4"/><path d="M11 11l7-7M15 4h3v3M14.5 7.5l2 2"/></svg></div>
+        <span class="code">AUTH</span><h3>MFA e Autenticação</h3>
+      </div>
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div>
+        <span class="code">GOV</span><h3>Governança e Papéis</h3>
+      </div>
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <span class="code">COND</span><h3>Acesso Condicional</h3>
+      </div>
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></div>
+        <span class="code">EXO</span><h3>Exchange Online</h3>
+      </div>
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h5l2 2h7a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+        <span class="code">SPO</span><h3>SharePoint e OneDrive</h3>
+      </div>
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+        <span class="code">DEV</span><h3>Dispositivos e Intune</h3>
+      </div>
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M12 8v4M12 15.5v.5"/></svg></div>
+        <span class="code">DEF</span><h3>Defesa contra Ameaças</h3>
+      </div>
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3.5h6V6H9zM8.5 11l2 2 4-4"/></svg></div>
+        <span class="code">CMP</span><h3>Conformidade e Auditoria</h3>
+      </div>
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M20.6 13.4l-7.2 7.2a2 2 0 01-2.8 0l-7-7A2 2 0 013 12.2V5a2 2 0 012-2h7.2a2 2 0 011.4.6l7 7a2 2 0 010 2.8z"/><circle cx="8" cy="8" r="1.4"/></svg></div>
+        <span class="code">LIC</span><h3>Licenças e Custos</h3>
+      </div>
+    </div>
+    <div class="areas-foot">
+      <b>4 frentes</b>
+      <span>Segurança · Conformidade · Ambiente · Custos — consolidadas em um único relatório priorizado.</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec paper-2" id="como">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Do acesso ao plano de ação, em até 5 dias úteis.</h2>
+      <p>Um processo simples, seguro e sem impacto na operação de quem trabalha.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>Acesso somente leitura</h3><p>Você concede um perfil de leitura (Global Reader) no seu tenant. Nada é instalado, nada é alterado, e o acesso é revogável a qualquer momento.</p></div>
+      <div class="step"><div class="n">02</div><h3>Análise do ambiente</h3><p>Varredura automatizada das quatro frentes sobre as APIs oficiais da Microsoft, seguida de análise manual dos achados e do contexto do seu negócio.</p></div>
+      <div class="step"><div class="n">03</div><h3>Relatório e plano</h3><p>Você recebe o relatório e o plano priorizado, apresentados em uma reunião. A partir daí, decide o que faz sentido executar. Sem compromisso.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLE -->
+<section class="sec dark">
+  <div class="wrap deliv sec-inner">
+    <div>
+      <span class="eyebrow">O que você recebe</span>
+      <h2 style="font-size:clamp(1.7rem,3.2vw,2.3rem);margin-top:14px;color:var(--hi)">Um diagnóstico que a diretoria entende e a TI executa.</h2>
+      <ul class="deliv-list">
+        <li><span class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></span><div><b>Relatório executivo do ambiente</b><span>Panorama de segurança, conformidade e custos, com o Secure Score atual e onde dá para elevar.</span></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></span><div><b>Plano de ação priorizado (P0 a P3)</b><span>Cada achado com criticidade, urgência e esforço. Do que resolver agora ao que pode esperar.</span></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></span><div><b>Mapa de custos e desperdício</b><span>Licenças ociosas e sobrepostas, com a economia potencial estimada.</span></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></span><div><b>Reunião de apresentação</b><span>Leitura conjunta dos achados e priorização, sem termos herméticos.</span></div></li>
+      </ul>
+    </div>
+    <div class="panel" role="img" aria-label="Exemplo de relatório do assessment com Secure Score de 69% e achados priorizados de P0 a P3">
+      <div class="panel-head"><span class="t">Relatório do ambiente</span><span class="ro">somente leitura</span></div>
+      <div class="scan"></div>
+      <div class="score">
+        <div class="ring">
+          <svg width="92" height="92" viewBox="0 0 116 116">
+            <circle cx="58" cy="58" r="50" fill="none" stroke="rgba(120,160,220,.14)" stroke-width="10"/>
+            <circle class="prog" cx="58" cy="58" r="50" fill="none" stroke="var(--blue)" stroke-width="10" stroke-linecap="round"/>
+          </svg>
+          <div class="val"><b>69%</b><small>score</small></div>
+        </div>
+        <div class="score-txt"><div class="k">Secure Score</div><div class="d">O nível de segurança do ambiente — e quanto dá para elevar.</div></div>
+      </div>
+      <div class="findings">
+        <div class="f p0"><span class="tag">P0</span><span class="lbl">Administrador sem MFA<small>segurança · acesso total sem segundo fator</small></span></div>
+        <div class="f p0"><span class="tag">P0</span><span class="lbl">Encaminhamento externo de e-mail<small>segurança · dados saindo da empresa</small></span></div>
+        <div class="f p1"><span class="tag">P1</span><span class="lbl">Sem trilha de auditoria completa<small>conformidade · rastreabilidade limitada</small></span></div>
+        <div class="f p2"><span class="tag">P2</span><span class="lbl">32 sites com compartilhamento externo<small>ambiente · exposição de arquivos</small></span></div>
+        <div class="f p3"><span class="tag">P3</span><span class="lbl">Licenças pagas sem uso<small>custos · orçamento em contas ociosas</small></span></div>
+      </div>
+      <p class="panel-foot">Exemplo de achados. O relatório é gerado no seu próprio ambiente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="sec dark" style="padding:56px 0;border-top:1px solid var(--ink-line)">
+  <div class="wrap sec-inner">
+    <div class="stats">
+      <div class="stat"><b>+15</b><span>anos em infraestrutura e Microsoft 365</span></div>
+      <div class="stat"><b>4</b><span>frentes analisadas no ambiente</span></div>
+      <div class="stat"><b>5 dias</b><span>úteis do acesso ao plano de ação</span></div>
+      <div class="stat"><b>100%</b><span>somente leitura, sem alterar nada</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATORS -->
+<section class="sec paper">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Por que a Bottaro TI</span>
+      <h2>Consultoria independente, não revenda de licença.</h2>
+    </div>
+    <div class="diffs">
+      <div class="diff"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Somente leitura</h3><p>Todo o assessment é feito sem instalar agentes e sem alterar nenhuma configuração do seu ambiente.</p></div>
+      <div class="diff"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><h3>Independente</h3><p>Sem meta de vender licença. A recomendação segue o interesse do seu ambiente, não de um fornecedor.</p></div>
+      <div class="diff"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg></div><h3>Certificado</h3><p>Conduzido por especialista com certificações Microsoft AZ-104 e MS-102 e mais de 15 anos de experiência.</p></div>
+      <div class="diff"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg></div><h3>Foco em PME</h3><p>Linguagem e escopo pensados para pequenas e médias empresas — sem burocracia de consultoria grande.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec paper-2" id="faq">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2>O que costumam perguntar antes de começar.</h2>
+    </div>
+    <div class="faq">
+      <div class="qa"><h3><span>01</span>Vocês alteram alguma coisa no meu ambiente?</h3><p>Não. Todo o assessment é somente leitura. Coletamos configurações e metadados através das APIs oficiais da Microsoft, sem modificar políticas, contas ou dados.</p></div>
+      <div class="qa"><h3><span>02</span>Que acesso preciso conceder?</h3><p>Um perfil Global Reader (leitura) no Entra ID e uma permissão de leitura no Exchange. É o acesso mínimo necessário, e você pode revogá-lo assim que o diagnóstico terminar.</p></div>
+      <div class="qa"><h3><span>03</span>Vocês leem meus e-mails e arquivos?</h3><p>Não. O assessment analisa configurações, permissões e metadados — quem tem acesso a quê, quais políticas existem, como o ambiente está configurado. O conteúdo das mensagens e dos documentos não é acessado.</p></div>
+      <div class="qa"><h3><span>04</span>Precisa instalar algum agente?</h3><p>Não. Nada é instalado no seu ambiente nem nos dispositivos. Tudo roda sobre as interfaces oficiais da Microsoft 365.</p></div>
+      <div class="qa"><h3><span>05</span>Quanto tempo leva?</h3><p>Em até 5 dias úteis após a liberação do acesso você recebe o relatório e o plano de ação, apresentados em uma reunião.</p></div>
+      <div class="qa"><h3><span>06</span>E depois do diagnóstico?</h3><p>Você fica com o relatório e o plano, e decide o que faz sentido executar — com a Bottaro TI ou com o seu time. O assessment é o primeiro passo, sem compromisso de contratar a execução.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="sec paper">
+  <div class="wrap">
+    <div class="final">
+      <div class="t">
+        <h2>Descubra onde estão os riscos antes que eles apareçam.</h2>
+        <p>Solicite o assessment do seu ambiente Microsoft 365. Em poucos dias você tem clareza sobre a segurança, a conformidade e os custos do seu ambiente — e um plano para agir.</p>
+      </div>
+      <div class="formcard">
+        <form id="leadForm2" novalidate>
+          <div class="fhead"><h2>Solicite seu assessment</h2></div>
+          <p class="sub">Sem compromisso. Resposta em até 1 dia útil.</p>
+          <div class="field"><label for="nome2">Nome</label><input type="text" id="nome2" name="nome" required></div>
+          <div class="field"><label for="email2">E-mail corporativo</label><input type="email" id="email2" name="email" required></div>
+          <div class="field two">
+            <div><label for="empresa2">Empresa</label><input type="text" id="empresa2" name="empresa" required></div>
+            <div><label for="telefone2">WhatsApp / telefone</label><input type="tel" id="telefone2" name="telefone"></div>
+          </div>
+          <div class="consent"><input type="checkbox" id="consent2" name="consent" required><label for="consent2">Autorizo o contato e concordo com o tratamento dos meus dados conforme a LGPD.</label></div>
+          <button type="submit" class="btn block">Solicitar meu assessment</button>
+        </form>
+        <div class="form-msg" id="formMsg2">
+          <div class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></div>
+          <h3>Recebido. Obrigado!</h3>
+          <p>Retornarei em até 1 dia útil com os próximos passos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <a href="#topo" class="brand" aria-label="Bottaro TI">
+          <span class="globe" style="color:var(--blue-2)"><svg viewBox="0 0 100 100" width="34" height="34"><use href="#globe"/></svg></span>
+          <span class="wm"><span class="n">BOTTARO TI</span><span class="t">Consultoria em Tecnologia da Informação</span></span>
+        </a>
+        <p class="desc">Consultoria independente em Microsoft 365, governança de TI e segurança da informação. Assessment de ambiente para pequenas e médias empresas.</p>
+        <span class="ms-foot">
+          <span class="sq"><i style="background:#F25022"></i><i style="background:#7FBA00"></i><i style="background:#00A4EF"></i><i style="background:#FFB900"></i></span>
+          <span class="w">Especialista em tecnologias Microsoft</span>
+        </span>
+      </div>
+      <div>
+        <h4>Assessment</h4>
+        <ul>
+          <li><a href="#analisa">O que analisamos</a></li>
+          <li><a href="#como">Como funciona</a></li>
+          <li><a href="#faq">Dúvidas frequentes</a></li>
+          <li><a href="#form">Solicitar avaliação</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:alexander.bottaro@bottaroti.com.br">alexander.bottaro@bottaroti.com.br</a></li>
+          <li><a href="tel:+5531998003161">+55 (31) 99800-3161</a></li>
+          <li>Atendimento remoto — todo o Brasil</li>
+        </ul>
+      </div>
+    </div>
+    <div class="meta">
+      <span>Bottaro TI · CNPJ 60.120.974/0001-30</span>
+      <span>© 2026 Bottaro TI · Todos os direitos reservados</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CONFIGURAÇÃO DO FORMULÁRIO
+   Cole em FORM_ENDPOINT a URL do seu serviço de captura (Formspree,
+   Getform, RD Station, Basin...). Ex.: https://formspree.io/f/xxxxxxx
+   Vazio = fallback por e-mail (abre o cliente de e-mail preenchido).
+   Netlify Forms: adicione ao <form> os atributos netlify e name="assessment".
+   ============================================================ */
+const FORM_ENDPOINT = "";
+const EMAIL_DESTINO = "alexander.bottaro@bottaroti.com.br";
+
+function getUTMs(){const p=new URLSearchParams(location.search),o={};["utm_source","utm_medium","utm_campaign","utm_term","utm_content"].forEach(k=>{if(p.get(k))o[k]=p.get(k)});return o;}
+function handleForm(form,msgEl){
+  form.addEventListener("submit",async function(e){
+    e.preventDefault();let ok=true;
+    form.querySelectorAll("[required]").forEach(el=>{
+      const inv=(el.type==="checkbox")?!el.checked:!el.value.trim();
+      if(el.type==="email"&&el.value&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value)){el.classList.add("err");ok=false;return;}
+      el.classList.toggle("err",inv);if(inv)ok=false;
+    });
+    if(!ok)return;
+    const data=Object.fromEntries(new FormData(form).entries());Object.assign(data,getUTMs());data.origem="Landing Assessment M365";
+    const done=()=>{form.style.display="none";msgEl.style.display="block";msgEl.scrollIntoView({behavior:"smooth",block:"center"});};
+    if(FORM_ENDPOINT){
+      try{const r=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)});r.ok?done():alert("Não foi possível enviar agora. Tente novamente ou escreva para "+EMAIL_DESTINO+".");}
+      catch(err){alert("Falha de conexão. Tente novamente ou escreva para "+EMAIL_DESTINO+".");}
+    }else{
+      const corpo=Object.entries(data).map(([k,v])=>k+": "+v).join("%0D%0A");
+      window.location.href="mailto:"+EMAIL_DESTINO+"?subject="+encodeURIComponent("Solicitação de Assessment M365 — "+(data.empresa||data.nome||""))+"&body="+corpo;done();
+    }
+  });
+  form.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",()=>el.classList.remove("err")));
+}
+handleForm(document.getElementById("leadForm"),document.getElementById("formMsg"));
+handleForm(document.getElementById("leadForm2"),document.getElementById("formMsg2"));
+</script>
+</body>
+</html>
