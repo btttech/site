@@ -92,6 +92,26 @@ h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-
   background-size:54px 54px;-webkit-mask-image:radial-gradient(680px 380px at 78% 4%,#000,transparent 72%);mask-image:radial-gradient(680px 380px at 78% 4%,#000,transparent 72%)}
 .hero .grid{display:grid;grid-template-columns:1.04fr .96fr;gap:52px;align-items:start;padding:62px 0 74px;position:relative;z-index:1}
 .hero-left{padding-top:6px}
+/* hero de apresentação (centrado) */
+.hero-center{position:relative;z-index:1;text-align:center;max-width:920px;margin:0 auto;padding:96px 0 84px}
+.hero-center .eyebrow{display:inline-block;margin-bottom:26px}
+.hero-center h1{font-size:clamp(2.3rem,5vw,3.7rem);line-height:1.08;color:var(--hi);margin:0 auto 26px;max-width:20ch}
+.hero-center p.lead{font-size:1.15rem;color:var(--lo);max-width:60ch;margin:0 auto 34px}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+.btn.lg{padding:15px 30px;font-size:1rem}
+.btn.ghost{background:transparent;border:1px solid var(--ink-3);color:var(--hi)}
+.btn.ghost:hover{border-color:var(--blue-2);background:rgba(46,109,246,.08)}
+.hero-ms{display:inline-flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;padding-top:30px;border-top:1px solid var(--ink-line)}
+.hero-ms .lead-ms{display:inline-flex;align-items:center;gap:12px}
+.hero-ms .lead-ms .sq{display:grid;grid-template-columns:repeat(2,15px);grid-template-rows:repeat(2,15px);gap:2.5px}
+.hero-ms .lead-ms .sq i{width:15px;height:15px;display:block}
+.hero-ms .lead-ms .lb{font-family:'IBM Plex Mono';font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lo);display:block;margin-bottom:2px}
+.hero-ms .lead-ms .w{font-size:1.12rem;color:var(--hi);font-weight:600}
+.hero-ms-note{font-size:.86rem;color:var(--lo)}
+.final-points{display:flex;flex-direction:column;gap:11px;margin-top:24px}
+.final-points span{display:inline-flex;align-items:center;gap:11px;font-size:.98rem;color:var(--dk)}
+.final-points .ic{width:22px;height:22px;border-radius:6px;background:rgba(39,179,107,.14);display:flex;align-items:center;justify-content:center;flex:none}
+.final-points .ic svg{width:13px;height:13px;stroke:var(--ok-dk);fill:none;stroke-width:3}
 .eyebrow-line{display:block;margin-bottom:18px}
 .badge{display:inline-flex;align-items:center;gap:9px;background:rgba(39,179,107,.1);border:1px solid rgba(39,179,107,.32);color:#7CE3AC;font-family:'IBM Plex Mono';font-size:.73rem;font-weight:600;letter-spacing:.04em;padding:7px 14px;border-radius:100px;margin-bottom:22px}
 .badge .p{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(39,179,107,.25)}
@@ -137,11 +157,7 @@ h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-
 /* ---------- Tech strip ---------- */
 .techstrip{background:#05080E;border-top:1px solid var(--ink-line);border-bottom:1px solid var(--ink-line);padding:26px 0;position:relative;z-index:1}
 .techstrip .row{display:flex;align-items:center;gap:30px;flex-wrap:wrap;justify-content:space-between}
-.techstrip .lead-ms{display:inline-flex;align-items:center;gap:12px;flex:none}
-.techstrip .lead-ms .sq{display:grid;grid-template-columns:repeat(2,13px);grid-template-rows:repeat(2,13px);gap:2px}
-.techstrip .lead-ms .sq i{width:13px;height:13px;display:block}
-.techstrip .lead-ms .w{font-size:1.02rem;color:var(--hi);font-weight:500}
-.techstrip .lead-ms .lb{font-family:'IBM Plex Mono';font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lo);display:block;margin-bottom:2px}
+.techstrip-lb{font-family:'IBM Plex Mono';font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lo);flex:none}
 .techstrip .work{display:flex;flex-wrap:wrap;gap:9px}
 .techstrip .work span{font-family:'IBM Plex Mono';font-size:.74rem;color:var(--lo);border:1px solid var(--ink-3);border-radius:100px;padding:7px 13px}
 
@@ -337,60 +353,29 @@ h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — APRESENTAÇÃO -->
 <header class="hero" id="topo">
-  <div class="wrap grid">
-    <div class="hero-left">
-      <span class="eyebrow eyebrow-line rise d1">Assessment de Segurança e Governança · Microsoft 365</span>
-      <div class="badge rise d1"><span class="p"></span>Diagnóstico + plano de ação em até 5 dias úteis</div>
-      <h1 class="rise d2">Seu ambiente Microsoft 365 está ativo. Mas está <span class="g">sob controle?</span></h1>
-      <p class="lead rise d3">Permissões em excesso, contas sem MFA, dados expostos e licenças desperdiçadas costumam passar despercebidos — até virarem incidente, multa ou custo. O Assessment da Bottaro TI faz um raio-X completo do ambiente e entrega um plano de ação priorizado por risco.</p>
-      <div class="deliver rise d3">
-        <span><span class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></span>Somente leitura — nada é instalado ou alterado</span>
-        <span><span class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></span>Relatório executivo + plano priorizado por risco</span>
-        <span><span class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></span>Confidencial e conduzido por especialista certificado</span>
-      </div>
+  <div class="wrap hero-center">
+    <span class="eyebrow rise d1">Consultoria em Microsoft 365 · Segurança e Governança</span>
+    <h1 class="rise d2">Governança e segurança em tecnologia, <span class="g">alinhadas aos objetivos do seu negócio.</span></h1>
+    <p class="lead rise d3">A Bottaro TI ajuda pequenas e médias empresas a colocarem o ambiente Microsoft 365 sob controle: segurança, conformidade com a LGPD e custos no lugar certo. Tudo começa por um diagnóstico do ambiente, somente leitura, com plano de ação priorizado por risco em até 5 dias úteis.</p>
+    <div class="hero-cta rise d3">
+      <a href="#form" class="btn lg">Solicitar meu assessment</a>
+      <a href="#analisa" class="btn ghost lg">O que analisamos</a>
     </div>
-
-    <!-- LEAD FORM -->
-    <div class="formcard rise d3" id="form">
-      <form id="leadForm" novalidate>
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-        <div class="fhead"><h2>Solicite seu assessment</h2><span class="lock">Sem compromisso</span></div>
-        <p class="sub">Preencha e retornamos em até 1 dia útil com os próximos passos.</p>
-        <div class="field"><label for="nome">Nome</label><input type="text" id="nome" name="nome" autocomplete="name" required></div>
-        <div class="field"><label for="email">E-mail corporativo</label><input type="email" id="email" name="email" autocomplete="email" required></div>
-        <div class="field two">
-          <div><label for="empresa">Empresa</label><input type="text" id="empresa" name="empresa" autocomplete="organization" required></div>
-          <div><label for="telefone">WhatsApp / telefone</label><input type="tel" id="telefone" name="telefone" autocomplete="tel"></div>
-        </div>
-        <div class="field two">
-          <div><label for="cargo">Seu cargo</label>
-            <select id="cargo" name="cargo" required><option value="">Selecione</option><option>Sócio / Diretor(a)</option><option>Gerente / Coordenador(a) de TI</option><option>Analista / Infra / TI</option><option>Outro</option></select>
-          </div>
-          <div><label for="usuarios">Usuários no M365</label>
-            <select id="usuarios" name="usuarios" required><option value="">Selecione</option><option>Até 25</option><option>26 a 100</option><option>101 a 300</option><option>Mais de 300</option></select>
-          </div>
-        </div>
-        <div class="consent"><input type="checkbox" id="consent" name="consent" required><label for="consent">Autorizo a Bottaro TI a entrar em contato sobre o assessment e concordo com o tratamento dos meus dados conforme a LGPD.</label></div>
-        <button type="submit" class="btn block">Solicitar meu assessment</button>
-        <p class="note">Resposta em até 1 dia útil · Seus dados não são compartilhados.</p>
-      </form>
-      <div class="form-msg" id="formMsg">
-        <div class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></div>
-        <h3>Recebido. Obrigado!</h3>
-        <p>Retornarei em até 1 dia útil no e-mail informado com os próximos passos do seu assessment.</p>
-      </div>
+    <div class="hero-ms rise d3">
+      <span class="lead-ms">
+        <span class="sq"><i style="background:#F25022"></i><i style="background:#7FBA00"></i><i style="background:#00A4EF"></i><i style="background:#FFB900"></i></span>
+        <span><span class="lb">Especialista em</span><span class="w">Microsoft 365</span></span>
+      </span>
+      <span class="hero-ms-note">Diagnóstico sem compromisso · Conduzido por especialista certificado</span>
     </div>
   </div>
 
   <!-- TECH STRIP -->
   <div class="techstrip">
     <div class="wrap row">
-      <span class="lead-ms">
-        <span class="sq"><i style="background:#F25022"></i><i style="background:#7FBA00"></i><i style="background:#00A4EF"></i><i style="background:#FFB900"></i></span>
-        <span><span class="lb">Especialista em</span><span class="w">Microsoft 365</span></span>
-      </span>
+      <span class="techstrip-lb">Tecnologias que dominamos</span>
       <div class="work">
         <span>Entra ID</span><span>Intune</span><span>Defender</span><span>Purview</span><span>Exchange Online</span><span>SharePoint</span><span>Teams</span>
       </div>
@@ -572,13 +557,19 @@ h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="sec paper">
+<!-- FINAL CTA / FORMULÁRIO -->
+<section class="sec paper" id="form">
   <div class="wrap">
     <div class="final">
       <div class="t">
+        <span class="eyebrow">Solicite seu assessment</span>
         <h2>Descubra onde estão os riscos antes que eles apareçam.</h2>
         <p>Solicite o assessment do seu ambiente Microsoft 365. Em poucos dias você tem clareza sobre a segurança, a conformidade e os custos do seu ambiente — e um plano para agir.</p>
+        <div class="final-points">
+          <span><span class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></span>Somente leitura — nada é instalado ou alterado</span>
+          <span><span class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></span>Relatório executivo + plano priorizado por risco</span>
+          <span><span class="ic"><svg viewBox="0 0 24 24"><use href="#check"/></svg></span>Conduzido por especialista certificado</span>
+        </div>
       </div>
       <div class="formcard">
         <form id="leadForm2" novalidate>
@@ -631,8 +622,8 @@ h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-
       <div>
         <h4>Contato</h4>
         <ul>
-          <li><a href="mailto:contato@bottaroti.com.br">contato@bottaroti.com.br</a></li>
-          <li><a href="tel:+5531995225997">+55 (31) 99522-5997</a></li>
+          <li><a href="mailto:alexander.bottaro@bottaroti.com.br">alexander.bottaro@bottaroti.com.br</a></li>
+          <li><a href="tel:+5531998003161">+55 (31) 99800-3161</a></li>
           <li>Atendimento remoto — todo o Brasil</li>
         </ul>
       </div>
@@ -655,7 +646,7 @@ h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-
 /* Endpoint do Formspree (recebe os leads e envia por e-mail).
    Para trocar o e-mail de destino, altere o formulário no painel do Formspree. */
 const FORM_ENDPOINT = "https://formspree.io/f/xeajjjqq";
-const EMAIL_DESTINO = "contato@bottaroti.com.br";
+const EMAIL_DESTINO = "alexander.bottaro@bottaroti.com.br";
 
 function getUTMs(){const p=new URLSearchParams(location.search),o={};["utm_source","utm_medium","utm_campaign","utm_term","utm_content"].forEach(k=>{if(p.get(k))o[k]=p.get(k)});return o;}
 function handleForm(form,msgEl){
@@ -693,7 +684,6 @@ function handleForm(form,msgEl){
   });
   form.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",()=>el.classList.remove("err")));
 }
-handleForm(document.getElementById("leadForm"),document.getElementById("formMsg"));
 handleForm(document.getElementById("leadForm2"),document.getElementById("formMsg2"));
 </script>
 </body>
